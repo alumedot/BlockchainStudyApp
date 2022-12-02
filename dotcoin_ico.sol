@@ -38,4 +38,11 @@ contract dotcoin_ico {
         equity_usd[investor] = equity_dotcoins[investor] / usd_to_dotcoins;
         total_dotcoins_bought += dotcoins_bought;
     }
+
+    // Selling `dotcoins`
+    function sell_dotcoins(address investor, uint dotcoins_sold) external {
+        equity_dotcoins[investor] -= dotcoins_sold;
+        equity_usd[investor] = equity_dotcoins[investor] / usd_to_dotcoins;
+        total_dotcoins_bought -= dotcoins_sold;
+    }
 }
